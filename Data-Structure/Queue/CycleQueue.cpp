@@ -56,10 +56,17 @@ int DelQueue(CycleQueue* q, datatype* e)
 /*¥Ú”°∂”¡–*/
 void print(CycleQueue* q)
 {
+<<<<<<< HEAD
 	int i = q->front;
 	while (i!=q->rear) {
 		printf("%d<-",q->data[i+1]);
 		i = (i + 1) % MAXQSIZE;
+=======
+	int i = 0;
+	while (i <= q->rear) {
+		printf("%d<-",q->data[i]);
+		i++;
+>>>>>>> 628246f45ed8e32469cec83efcb8a5e48b5e26d3
 	}
 	printf("\n");
 }
