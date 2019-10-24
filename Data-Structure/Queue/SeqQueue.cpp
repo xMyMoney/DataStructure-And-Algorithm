@@ -13,15 +13,15 @@ SeqQueue *Init_SeqQueue()
 {
 	SeqQueue* q;
 	q = new SeqQueue;
-	q->front = q->rear=-1;
+	q->front = q->rear=-1;             //队头队尾=1时 队列为空
 	return q;
 }
 
 /*入队*/
 int EnSeqQueue(SeqQueue* q, datatype e)
 {
-	q->rear++;
-	q->data[q->rear] = e;
+	q->rear++;                         //队尾+1
+	q->data[q->rear] = e;              //数据存到队尾
 	return 1;	
 }
 
@@ -33,8 +33,8 @@ int DeSeqQueue(SeqQueue* q, datatype* e)
 		return 0;
 	}
 	else {
-		q->front++;
-		*e = q->data[q->front];
+		q->front++;                    //队头+1
+		*e = q->data[q->front];        //原队头元素放入e中   
 		return 1;
 	}
 }

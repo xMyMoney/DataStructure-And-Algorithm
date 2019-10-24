@@ -28,10 +28,10 @@ int Empty_LinkStack(LinkStack top)
 LinkStack Push_LinkStack(LinkStack top, datatype e)
 {
 	StackNode* s;
-	s = new StackNode;
-	s->data = e;
-	s->next = top;
-	top = s;
+	s = new StackNode;                             //为新节点申请内存空间           
+	s->data = e;                                   //e置入新节点数据域
+	s->next = top;                                 //新节点指向栈顶
+	top = s;                                       //修改栈顶指针  
 	return top;
 }
 
@@ -39,14 +39,14 @@ LinkStack Push_LinkStack(LinkStack top, datatype e)
 LinkStack Pop_LinkStack(LinkStack top, datatype* e)
 {
 	StackNode* p;
-	if (Empty_LinkStack(top)) {
+	if (Empty_LinkStack(top)) {                     //判断栈空
 		return 0;
 	}
 	else {
-		*e = top->data;
-		p = top;
-		top = top->next;
-		free(p);
+		*e = top->data;                             //栈顶数据域赋给e
+		p = top;                                    //p指向栈顶元素
+		top = top->next;                            //修改栈顶指针
+		free(p);                                    //释放p节点
 		return top;
 	}
 }
@@ -68,7 +68,7 @@ void print(LinkStack  top)
 	StackNode* p = top;
 	while (p != NULL)
 	{
-		printf("%d->", p->data);
+		printf("->%d", p->data);
 		p = p->next;
 	}
 }

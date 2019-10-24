@@ -12,7 +12,7 @@ CycleQueue *Init_Queue()
 {
 	CycleQueue* q;
 	q = new CycleQueue;
-	q->front = q->rear = -1;
+	q->front = q->rear = -1;           //队空
 	return q;
 }
 
@@ -33,8 +33,8 @@ int EnQueue(CycleQueue* q, datatype e)
 		return 0;
 	}
 	else {
-		q->rear = (q->rear + 1) % MAXQSIZE;
-		q->data[q->rear] = e;
+		q->rear = (q->rear + 1) % MAXQSIZE;       //队尾指针+1
+		q->data[q->rear] = e;                     
 		return 1;
 	}
 }
@@ -47,7 +47,7 @@ int DelQueue(CycleQueue* q, datatype* e)
 		return 0;
 	}
 	else {
-		q->front = (q->front + 1) % MAXQSIZE;
+		q->front = (q->front + 1) % MAXQSIZE;   //队头指针+1
 		*e = q->data[q->front];
 		return 1;
 	}
@@ -56,17 +56,10 @@ int DelQueue(CycleQueue* q, datatype* e)
 /*打印队列*/
 void print(CycleQueue* q)
 {
-<<<<<<< HEAD
 	int i = q->front;
 	while (i!=q->rear) {
 		printf("%d<-",q->data[i+1]);
 		i = (i + 1) % MAXQSIZE;
-=======
-	int i = 0;
-	while (i <= q->rear) {
-		printf("%d<-",q->data[i]);
-		i++;
->>>>>>> 628246f45ed8e32469cec83efcb8a5e48b5e26d3
 	}
 	printf("\n");
 }

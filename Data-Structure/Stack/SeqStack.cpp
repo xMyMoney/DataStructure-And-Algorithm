@@ -37,8 +37,8 @@ int Push_Stack(SeqStack* s, datatype e)
 		return 0;
 	}
 	else {
-		s->top++;
-		s->data[s->top] = e;
+		s->top++;                       //Õ»¶¥+1
+		s->data[s->top] = e;            //½«Êý¾ÝÖÃÈëÕ»¶¥ÔªËØ
 		return 1;
 	}
 }
@@ -50,8 +50,8 @@ int Pop_Stack(SeqStack* s, datatype* e)
 		return 0;
 	}
 	else {
-		*e = s->data[s->top];
-		s->top--;
+		*e = s->data[s->top];          //Õ»¶¥ÔªËØ´æÈëe
+		s->top--;                      //Õ»¶¥-1
 		return *e;
 	}
 }
